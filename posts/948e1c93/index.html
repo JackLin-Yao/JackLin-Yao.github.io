@@ -1,0 +1,654 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CSS学习笔记 | JackLin-Yao</title><meta name="keywords" content="学习笔记"><meta name="author" content="尘心"><meta name="copyright" content="尘心"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="CSSCSS属性以下是开发中经常会用到的前缀。  -webkit：webkit核心浏览器，包括Chrome、Safari等。 -moz：火狐（Firefox）浏览器 -ms：IE浏览器。 -o：Opera浏览器。  背景属性   属性 描述 属性值    background 简化写法，可以在同一个声明中设置全部属性    background-attachment 背景图像是否固定 fixed（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS学习笔记">
+<meta property="og:url" content="http://example.com/posts/948e1c93/index.html">
+<meta property="og:site_name" content="JackLin-Yao">
+<meta property="og:description" content="CSSCSS属性以下是开发中经常会用到的前缀。  -webkit：webkit核心浏览器，包括Chrome、Safari等。 -moz：火狐（Firefox）浏览器 -ms：IE浏览器。 -o：Opera浏览器。  背景属性   属性 描述 属性值    background 简化写法，可以在同一个声明中设置全部属性    background-attachment 背景图像是否固定 fixed（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg">
+<meta property="article:published_time" content="2020-01-13T07:37:35.000Z">
+<meta property="article:modified_time" content="2021-01-26T01:51:35.862Z">
+<meta property="article:author" content="尘心">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/posts/948e1c93/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  ClickShowText: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-01-26 09:51:35'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.2.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">JackLin-Yao</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">CSS学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-01-13T07:37:35.000Z" title="发表于 2020-01-13 15:37:35">2020-01-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-01-26T01:51:35.862Z" title="更新于 2021-01-26 09:51:35">2021-01-26</time></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h1><h2 id="CSS属性"><a href="#CSS属性" class="headerlink" title="CSS属性"></a>CSS属性</h2><p>以下是开发中经常会用到的前缀。</p>
+<ul>
+<li>-webkit：webkit核心浏览器，包括Chrome、Safari等。</li>
+<li>-moz：火狐（Firefox）浏览器</li>
+<li>-ms：IE浏览器。</li>
+<li>-o：Opera浏览器。</li>
+</ul>
+<h3 id="背景属性"><a href="#背景属性" class="headerlink" title="背景属性"></a>背景属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>background</td>
+<td>简化写法，可以在同一个声明中设置全部属性</td>
+<td></td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>背景图像是否固定</td>
+<td>fixed（固定） scroll（默认值）</td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>单独设置背景颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>单独设置背景图像</td>
+<td>url（地址）</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>设置背景图像位置</td>
+<td>top center bottom right  left</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>设置背景图像是否重复</td>
+<td>repeat-x、y  no-repeat</td>
+</tr>
+</tbody></table>
+<h3 id="文本属性"><a href="#文本属性" class="headerlink" title="文本属性"></a>文本属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>color</td>
+<td>设置文本颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>设置行高。</td>
+<td></td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>设置字符间距。letter-spacing 属性与 word-spacing 的区别在于，字母间隔修改的是字符或字母之间的间隔。</td>
+<td></td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>对齐元素中的文本。</td>
+<td>left right center justify(实现两端对齐文本效果。)</td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>向文本添加修饰。</td>
+<td>none underline overline line-through blink</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>缩进元素中文本的首行。</td>
+<td></td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>设置字间距。</td>
+<td></td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>处理文本的大小写</td>
+<td>capitalize（文本中的每个单词以大写字母开头。） uppercase (定义仅有大写字母。) lowercase</td>
+</tr>
+</tbody></table>
+<h3 id="字体属性"><a href="#字体属性" class="headerlink" title="字体属性"></a>字体属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>font</td>
+<td>把所有针对字体的属性设置在一个声明中。</td>
+<td></td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>设置字体系列。</td>
+<td></td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>设置字体的尺寸。</td>
+<td></td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>设置字体风格。</td>
+<td>italic（斜体）oblique（倾斜）</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>设置字体的粗细。</td>
+<td>bold bolder</td>
+</tr>
+</tbody></table>
+<h3 id="链接属性"><a href="#链接属性" class="headerlink" title="链接属性"></a>链接属性</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a:link</td>
+<td>普通的、未被访问的链接</td>
+</tr>
+<tr>
+<td>a:visited</td>
+<td>用户已访问的链接</td>
+</tr>
+<tr>
+<td>a:hover</td>
+<td>鼠标指针位于链接的上方</td>
+</tr>
+<tr>
+<td>a:active</td>
+<td>链接被点击的时刻</td>
+</tr>
+</tbody></table>
+<ul>
+<li>a:hover 必须位于 a:link 和 a:visited 之后</li>
+<li>a:active 必须位于 a:hover 之后</li>
+</ul>
+<h3 id="列表属性"><a href="#列表属性" class="headerlink" title="列表属性"></a>列表属性</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">list-style</td>
+<td align="left">简写属性。用于把所有用于列表的属性设置于一个声明中。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">list-style-image</td>
+<td align="left">将图象设置为列表项标志。</td>
+<td>url</td>
+</tr>
+<tr>
+<td align="left">list-style-position</td>
+<td align="left">设置列表中列表项标志的位置。</td>
+<td>inside（列表项目标记放置在文本以内）outside（列表项目标记放置在文本以外）</td>
+</tr>
+<tr>
+<td align="left">list-style-type</td>
+<td align="left">设置列表项标志的类型。</td>
+<td>disc | circle | square | decimal | decimal-leading-zero |  lower-roman | upper-roman | lower-greek | lower-latin | upper-latin |</td>
+</tr>
+</tbody></table>
+<h3 id="CSS-Table-属性"><a href="#CSS-Table-属性" class="headerlink" title="CSS Table 属性"></a>CSS Table 属性</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">border-collapse</td>
+<td align="left">设置是否把表格边框合并为单一的边框。</td>
+<td>separate（边框会被分开）collapse（边框会合并为一个单一的边框）</td>
+</tr>
+<tr>
+<td align="left">border-spacing</td>
+<td align="left">设置分隔单元格边框的距离。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">caption-side</td>
+<td align="left">设置表格标题的位置。</td>
+<td>bottom（把表格标题定位在表格之下。）top（默认值。把表格标题定位在表格之上。）</td>
+</tr>
+<tr>
+<td align="left">empty-cells</td>
+<td align="left">设置是否显示表格中的空单元格。</td>
+<td>hide（不在空单元格周围绘制边框。）</td>
+</tr>
+<tr>
+<td align="left">table-layout</td>
+<td align="left">设置显示单元、行和列的算法。</td>
+<td>fixed（列宽由表格宽度和列宽度设定。） automatic（默认）</td>
+</tr>
+</tbody></table>
+<p><strong>text-align 和 vertical-align 属性设置表格中文本的对齐方式</strong></p>
+<h3 id="CSS边框属性"><a href="#CSS边框属性" class="headerlink" title="CSS边框属性"></a>CSS边框属性</h3><p><strong>一切皆为框</strong></p>
+<p><img src="C:%5CUsers%5CALISA%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20210111222402530.png" alt="image-20210111222402530"></p>
+<h4 id="CSS-内边距"><a href="#CSS-内边距" class="headerlink" title="CSS 内边距"></a>CSS 内边距</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">padding</td>
+<td align="left">简写属性。作用是在一个声明中设置元素的所内边距属性。</td>
+</tr>
+<tr>
+<td align="left">padding-bottom</td>
+<td align="left">设置元素的下内边距。</td>
+</tr>
+<tr>
+<td align="left">padding-left</td>
+<td align="left">设置元素的左内边距。</td>
+</tr>
+<tr>
+<td align="left">padding-right</td>
+<td align="left">设置元素的右内边距。</td>
+</tr>
+<tr>
+<td align="left">padding-top</td>
+<td align="left">设置元素的上内边距。</td>
+</tr>
+</tbody></table>
+<h4 id="CSS-外边距属性"><a href="#CSS-外边距属性" class="headerlink" title="CSS 外边距属性"></a>CSS 外边距属性</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">margin</td>
+<td align="left">简写属性。在一个声明中设置所有外边距属性。</td>
+</tr>
+<tr>
+<td align="left">margin-bottom</td>
+<td align="left">设置元素的下外边距。</td>
+</tr>
+<tr>
+<td align="left">margin-left</td>
+<td align="left">设置元素的左外边距。</td>
+</tr>
+<tr>
+<td align="left">margin-right</td>
+<td align="left">设置元素的右外边距。</td>
+</tr>
+<tr>
+<td align="left">margin-top</td>
+<td align="left">设置元素的上外边距。</td>
+</tr>
+</tbody></table>
+<h4 id="CSS-边框属性"><a href="#CSS-边框属性" class="headerlink" title="CSS 边框属性"></a>CSS 边框属性</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">border</td>
+<td align="left">简写属性，用于把针对四个边的属性设置在一个声明。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-style</td>
+<td align="left">用于设置元素所有边框的样式，或者单独地为各边设置边框样式。</td>
+<td>none  hidden （对于表，hidden 用于解决边框冲突。） dashed虚线  solid实线</td>
+</tr>
+<tr>
+<td align="left">border-width</td>
+<td align="left">简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-color</td>
+<td align="left">简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。</td>
+<td>transparent默认值透明</td>
+</tr>
+<tr>
+<td align="left">border-bottom</td>
+<td align="left">简写属性，用于把下边框的所有属性设置到一个声明中。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-bottom-color</td>
+<td align="left">设置元素的下边框的颜色。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-bottom-style</td>
+<td align="left">设置元素的下边框的样式。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-bottom-width</td>
+<td align="left">设置元素的下边框的宽度。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-left</td>
+<td align="left">简写属性，用于把左边框的所有属性设置到一个声明中。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-image</td>
+<td align="left">设置所有 border-image属性的简写属性。</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">border-radius</td>
+<td align="left">设置所有四个 border-radius 属性的简写属性</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">box-shadow</td>
+<td align="left">向方框添加一个或多个阴影</td>
+<td><em>h-shadow</em>（水平） <em>v-shadow</em>（垂直）</td>
+</tr>
+</tbody></table>
+<h4 id="外边距合并"><a href="#外边距合并" class="headerlink" title="外边距合并"></a>外边距合并</h4><p><strong>外边距合并指的是，当两个垂直外边距相遇时，它们将形成一个外边距。</strong></p>
+<p><strong>合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者。</strong></p>
+<p><strong>当一个元素出现在另一个元素上面时，第一个元素的下外边距与第二个元素的上外边距会发生合并</strong></p>
+<p><strong>当一个元素包含在另一个元素中时（假设没有内边距或边框把外边距分隔开），它们的上和/或下外边距也会发生合并。</strong></p>
+<p><strong>注意：</strong>只有普通文档流中块框的垂直外边距才会发生外边距合并。行内框、浮动框或绝对定位之间的外边距不会合并。</p>
+<h3 id="CSS-定位-Positioning"><a href="#CSS-定位-Positioning" class="headerlink" title="CSS 定位 (Positioning)"></a>CSS 定位 (Positioning)</h3><h4 id="CSS-定位属性"><a href="#CSS-定位属性" class="headerlink" title="CSS 定位属性"></a>CSS 定位属性</h4><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+<th>属性值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">position</td>
+<td align="left">把元素放置到一个静态的、相对的、绝对的、或固定的位置中。</td>
+<td><strong>static</strong> <strong>relative</strong>  <strong>absolute</strong> <strong>fixed</strong>（生成绝对定位的元素，相对于浏览器窗口进行定位。）</td>
+</tr>
+<tr>
+<td align="left">top</td>
+<td align="left">定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移。</td>
+<td>auto</td>
+</tr>
+<tr>
+<td align="left">right</td>
+<td align="left">定义了定位元素右外边距边界与其包含块右边界之间的偏移。</td>
+<td>auto</td>
+</tr>
+<tr>
+<td align="left">bottom</td>
+<td align="left">定义了定位元素下外边距边界与其包含块下边界之间的偏移。</td>
+<td>auto</td>
+</tr>
+<tr>
+<td align="left">left</td>
+<td align="left">定义了定位元素左外边距边界与其包含块左边界之间的偏移。</td>
+<td>auto</td>
+</tr>
+<tr>
+<td align="left">overflow</td>
+<td align="left">设置当元素的内容溢出其区域时发生的事情。</td>
+<td>visible hidden scroll(会显示滚动条) auto（会显示滚动条）</td>
+</tr>
+<tr>
+<td align="left">clip</td>
+<td align="left">设置元素的形状。元素被剪入这个形状之中，然后显示出来。</td>
+<td><em>shape</em>（设置元素的形状。唯一合法的形状值是：rect (<em>top</em>, <em>right</em>, <em>bottom</em>, <em>left</em>)） auto（默认值）</td>
+</tr>
+<tr>
+<td align="left">vertical-align</td>
+<td align="left">设置元素的垂直对齐方式。</td>
+<td>sub super top middle bottom</td>
+</tr>
+<tr>
+<td align="left">z-index</td>
+<td align="left">设置元素的堆叠顺序。</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="CSS浮动"><a href="#CSS浮动" class="headerlink" title="CSS浮动"></a>CSS浮动</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clear</td>
+<td>清除浮动</td>
+<td>left right both</td>
+</tr>
+<tr>
+<td>cursor</td>
+<td>设置指针类型</td>
+<td></td>
+</tr>
+<tr>
+<td>display</td>
+<td>如何显示元素</td>
+<td>inline block</td>
+</tr>
+<tr>
+<td>float</td>
+<td>设置元素浮动</td>
+<td>left right</td>
+</tr>
+</tbody></table>
+<h3 id="个性化的字体定义"><a href="#个性化的字体定义" class="headerlink" title="个性化的字体定义"></a>个性化的字体定义</h3><p>@font-face的基本语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@font-face&#123;</span><br><span class="line">      font-family: myFirstFont;</span><br><span class="line">      src: url(&#39;Sansation_Light.ttf&#39;), url(&#39;Sansation_Light.eot&#39;); &#x2F;* IE9+ *&#x2F;</span><br><span class="line">    &#125;</span><br><span class="line">    div&#123;</span><br><span class="line">      font-family:myFirstFont;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">尘心</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/posts/948e1c93/">http://example.com/posts/948e1c93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">JackLin-Yao</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/97b56202/"><img class="prev-cover" src="https://i.loli.net/2021/01/25/A5RqlCeQ7wMhfLi.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JQuery学习笔记</div></div></a></div><div class="next-post pull-right"><a href="/posts/36770/"><img class="next-cover" src="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">FirstArtical</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/97b56202/" title="JQuery学习笔记"><img class="cover" src="https://i.loli.net/2021/01/25/A5RqlCeQ7wMhfLi.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-13</div><div class="title">JQuery学习笔记</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81MjA2MC8yODU0MQ=="></div></div></div></div></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">尘心</div><div class="author-info__description">读书使人充实，讨论使思维灵活，笔记使人准确。</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">6</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/JackLin-Yao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/JackLin-Yao" target="_blank" title="Github"><i class="fab fa-github"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="card-content"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS"><span class="toc-number">1.</span> <span class="toc-text">CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.</span> <span class="toc-text">CSS属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.1.</span> <span class="toc-text">背景属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.2.</span> <span class="toc-text">文本属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E4%BD%93%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.3.</span> <span class="toc-text">字体属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.4.</span> <span class="toc-text">链接属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%97%E8%A1%A8%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.5.</span> <span class="toc-text">列表属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-Table-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.6.</span> <span class="toc-text">CSS Table 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E8%BE%B9%E6%A1%86%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.7.</span> <span class="toc-text">CSS边框属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-%E5%86%85%E8%BE%B9%E8%B7%9D"><span class="toc-number">1.1.7.1.</span> <span class="toc-text">CSS 内边距</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.7.2.</span> <span class="toc-text">CSS 外边距属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-%E8%BE%B9%E6%A1%86%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.7.3.</span> <span class="toc-text">CSS 边框属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%96%E8%BE%B9%E8%B7%9D%E5%90%88%E5%B9%B6"><span class="toc-number">1.1.7.4.</span> <span class="toc-text">外边距合并</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E5%AE%9A%E4%BD%8D-Positioning"><span class="toc-number">1.1.8.</span> <span class="toc-text">CSS 定位 (Positioning)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CSS-%E5%AE%9A%E4%BD%8D%E5%B1%9E%E6%80%A7"><span class="toc-number">1.1.8.1.</span> <span class="toc-text">CSS 定位属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E6%B5%AE%E5%8A%A8"><span class="toc-number">1.1.9.</span> <span class="toc-text">CSS浮动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E6%80%A7%E5%8C%96%E7%9A%84%E5%AD%97%E4%BD%93%E5%AE%9A%E4%B9%89"><span class="toc-number">1.1.10.</span> <span class="toc-text">个性化的字体定义</span></a></li></ol></li></ol></li></ol></div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/1e0fb4a0/" title="docsify的简单教程"><img src="https://i.loli.net/2021/01/25/27vAHIcX4YaDqPN.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="docsify的简单教程"/></a><div class="content"><a class="title" href="/posts/1e0fb4a0/" title="docsify的简单教程">docsify的简单教程</a><time datetime="2020-01-21T14:04:02.000Z" title="发表于 2020-01-21 22:04:02">2020-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9b405b46/" title="hexo的简单教程"><img src="https://i.loli.net/2021/01/25/uKqyFT49khiRdDP.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hexo的简单教程"/></a><div class="content"><a class="title" href="/posts/9b405b46/" title="hexo的简单教程">hexo的简单教程</a><time datetime="2020-01-21T14:04:02.000Z" title="发表于 2020-01-21 22:04:02">2020-01-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/97b56202/" title="JQuery学习笔记"><img src="https://i.loli.net/2021/01/25/A5RqlCeQ7wMhfLi.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JQuery学习笔记"/></a><div class="content"><a class="title" href="/posts/97b56202/" title="JQuery学习笔记">JQuery学习笔记</a><time datetime="2020-01-13T07:41:06.000Z" title="发表于 2020-01-13 15:41:06">2020-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/948e1c93/" title="CSS学习笔记"><img src="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS学习笔记"/></a><div class="content"><a class="title" href="/posts/948e1c93/" title="CSS学习笔记">CSS学习笔记</a><time datetime="2020-01-13T07:37:35.000Z" title="发表于 2020-01-13 15:37:35">2020-01-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/36770/" title="FirstArtical"><img src="https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="FirstArtical"/></a><div class="content"><a class="title" href="/posts/36770/" title="FirstArtical">FirstArtical</a><time datetime="2020-01-06T16:00:00.000Z" title="发表于 2020-01-07 00:00:00">2020-01-07</time></div></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(https://i.loli.net/2021/01/25/Pv7Kkm6BVQERTn4.jpg)"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 尘心</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="/js/search/local-search.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',()=> {preloader.endLoading()})</script><div class="js-pjax"><script>if (document.getElementsByClassName('mermaid').length) {
+  if (window.mermaidJsLoad) mermaid.init()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js').then(() => {
+      window.mermaidJsLoad = true
+      mermaid.initialize({
+        theme: 'default',
+      })
+      false && mermaid.init()
+    })
+  }
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><canvas class="fireworks" mobile="false"></canvas><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/fireworks.min.js"></script></div></body></html>
